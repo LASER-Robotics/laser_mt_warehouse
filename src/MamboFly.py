@@ -9,23 +9,11 @@ import comunicacion
 
 enderecoMambo = "d0:3a:62:2d:e6:3b"
 
-mambo = Mambo(address=enderecoMambo, use_wifi=False)
-connectionState = mambo.connect(num_retries=3)
+mambo = Mambo(enderecoMambo, False)
+connectionState = mambo.connect(3)
 print(f"Estate of connection {connectionState}")
 
 signalTurtle = False
-
-def hover():
-    mambo.hover()
-
-def sleep():
-    mambo.smart_sleep()
-
-def takeOff():
-    mambo.safe_takeoff()
-
-def land():
-    mambo.safe_land()
 
 def searchPacket():
     while True:
@@ -45,15 +33,15 @@ if connectionState:
 
         if signalTurtle == "False":
             print("Sleeping")
-            sleep()
+            mambo.sleep()
         else:
             print("Take off")
-            takeOff()
+            mambo.safe_takeoff()
 
         while signalTurtle == "True":
             print("Search packet")
             if searchPacket():
-                hover()
+                mambo.hover()
             elif searchPacket() == "True and Last floor":
-                land()
+                mambo.safe_land()
                 comunicacion.warnLanded()
