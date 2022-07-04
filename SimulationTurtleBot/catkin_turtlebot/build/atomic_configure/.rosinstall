@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/pedrolucas/catkin_turtlebot/devel/setup.sh
