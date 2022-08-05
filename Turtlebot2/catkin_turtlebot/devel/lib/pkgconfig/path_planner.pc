@@ -1,0 +1,8 @@
+prefix=/home/pedrolucas/catkin_turtlebot/devel
+
+Name: path_planner
+Description: Description of path_planner
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
