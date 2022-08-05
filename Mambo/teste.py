@@ -12,7 +12,7 @@ if sucesso:
     if mambo.sensors.flying_state != "emergency":
         print("subindo")
         mambo.safe_takeoff(3)
-        opa = mambo.fly_direct(0, 0, 0, 5, 1)
+        opa = mambo.fly_direct(0, 0, 0, 5, 5)
         print(opa)
         mambo.safe_land(3)
 
