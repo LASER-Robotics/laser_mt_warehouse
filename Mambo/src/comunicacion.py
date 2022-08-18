@@ -10,12 +10,8 @@ client = mqtt.Client(nameClient)
 client.on_message=on_message
 client.connect("broker.hivemq.com")
 
-def checkQR():
-    client.subscribe("CamerA01")
-    return signal
-
-def warnLanded():
-    client.publish("TurTLeSignalLanded", "True")
+def droneStatus(status):
+    client.publish("DroneSignalLanded", status)
 
 def checkSiganlTurtle():
     client.subscribe("TurTLeSignalTakeOFF")

@@ -21,9 +21,15 @@ if connectionState:
             print("Sleeping")
             mambo.sleep()
         else:
+            comunicacion.droneStatus("Flying")
             print("Take off")
             mambo.safe_takeoff()
 
             print("Flying")
             mambo.fly_direct(0, 0, 0, 20, 5)
+            
+            print("Landing")
+            mambo.safe_land()
+            comunicacion.droneStatus("Landed")
+
             
