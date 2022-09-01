@@ -12,11 +12,8 @@
 #define CAMERA_MODEL_AI_THINKER
 // #define CAMERA_MODEL_TTGO
 
-//Use 1 para que o ESP crie uma rede com o ssid e password
-//Use 0 para o ESP se conectar a uma rede que tenha o ssid e password indicado
-#define ACCESS_POINT 1
 const char* ssid = "LAB_ROBOTICA";
-const char* password = "UAVX500";
+const char* password = "UAV1X500";
 
 #if defined(CAMERA_MODEL_WROVER_KIT)
 #define PWDN_GPIO_NUM    -1
@@ -146,27 +143,27 @@ void setup() {
   sensor_t * s = esp_camera_sensor_get();
   s->set_framesize(s, FRAMESIZE_QVGA);
 
-  if(ACCESS_POINT)
+  /*if(ACCESS_POINT)
   {
     WiFi.softAP(ssid, password);
   }
   else
-  {
-    WiFi.begin(ssid, password);
+  {*/
+  WiFi.begin(ssid, password);
 
-    while (WiFi.status() != WL_CONNECTED) {
-      delay(500);
-      Serial.print(".");
-    }
-
-    Serial.println("");
-    Serial.println("WiFi connected");
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
   }
+
+  Serial.println("");
+  Serial.println("WiFi connected");
+  //}
 
   startCameraServer();
 
   Serial.print("Camera Ready! Use 'http://");
-  Serial.print(ACCESS_POINT ? WiFi.softAPIP() : WiFi.localIP());
+  Serial.print(WiFi.localIP());
   Serial.println("' to connect");
 }//setup
 
