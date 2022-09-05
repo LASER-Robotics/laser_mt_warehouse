@@ -1,0 +1,4 @@
+Symlinking /home/pedrolucas/workspace/devel/lib/pkgconfig/turtlebot3_simulation.pc
+Symlinking /home/pedrolucas/workspace/devel/lib/turtlebot3_simulation/turtlebot3_drive
+Symlinking /home/pedrolucas/workspace/devel/share/turtlebot3_simulation/cmake/turtlebot3_simulationConfig-version.cmake
+Symlinking /home/pedrolucas/workspace/devel/share/turtlebot3_simulation/cmake/turtlebot3_simulationConfig.cmake

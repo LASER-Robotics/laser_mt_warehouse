@@ -1,0 +1,1 @@
+/home/pedrolucas/workspace/devel/.private/turtlebot3_simulation/lib/pkgconfig/turtlebot3_simulation.pc

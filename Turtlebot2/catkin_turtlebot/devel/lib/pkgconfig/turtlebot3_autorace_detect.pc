@@ -1,8 +1,0 @@
-prefix=/home/pedrolucas/catkin_turtlebot/devel
-
-Name: turtlebot3_autorace_detect
-Description: Description of turtlebot3_autorace_detect
-Version: 1.2.0
-Cflags: -I/home/pedrolucas/catkin_turtlebot/devel/include
-Libs: -L${prefix}/lib 
-Requires: dynamic_reconfigure
