@@ -1,0 +1,1 @@
+/home/pedrolucas/workspace/devel/.private/laser_turtlebot/lib/pkgconfig/laser_turtlebot.pc

@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/pedrolucas/workspace/devel/.private/turtlebot3_navigation/setup.sh

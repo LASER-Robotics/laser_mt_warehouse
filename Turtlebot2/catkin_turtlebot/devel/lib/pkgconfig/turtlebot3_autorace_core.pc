@@ -1,8 +1,0 @@
-prefix=/home/pedrolucas/catkin_turtlebot/devel
-
-Name: turtlebot3_autorace_core
-Description: Description of turtlebot3_autorace_core
-Version: 1.2.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
