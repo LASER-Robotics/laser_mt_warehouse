@@ -1,5 +1,9 @@
 #include "esp_camera.h"
 #include <WiFi.h>
+#include <WiFiClientSecure.h>
+#include "Base64.h"
+#include "soc/soc.h"
+#include "soc/rtc_cntl_reg.h"
 
 #define CAMERA_MODEL_AI_THINKER
 
@@ -21,32 +25,37 @@
 #define VSYNC_GPIO_NUM    25
 #define HREF_GPIO_NUM     23
 #define PCLK_GPIO_NUM     22
+#endif
 
-#define CAPTURE_TIME 3000;
-#define TIME_LIMIT 2000;
+#define CAPTURE_TIME 3000
+#define TIME_LIMIT 10000
 
+int imgNumber = 0;
 long int timeInitial = millis();
-String ssid = "LAB_ROBOTICA";
-String password = "UAV1X500";
-String host = "script.google.com";
-String meuScript = "/macros/s/XXX/exec";
+const char *ssid = "LAB_ROBOTICA";
+const char *password = "UAV1X500";
+const char *host = "script.google.com";
+String myScript = "/macros/s/AKfycbzkruLjjCksP4TDFYJ5oQnFgbiWv-C1xazjQchrCNyiwYB8zfF8TmVewzp96ZuTmQ9w/exec";
 
+String mimeType = "&mimetype=image/jpeg";
+String img = "&data=";
 
-void wifiConect(String ssid, String password) {
+void wifiConect(const char* ssid, const char* password) {
   WiFi.begin(ssid, password);
   int tempoConexao = millis();
   while (WiFi.status() != WL_CONNECTED) {
-    println(".");
+    Serial.print(".");
     delay(300);
 
-    if((tempoConexao + TIME_LIMIT) < millis()) {
-      println("Time limit for conect wifi, restarting ESP");
+    
+    if((tempoConexao + 20000) < millis()) {
+      Serial.println("\nnTime limit for conect wifi, restarting ESP");
       ESP.restart();
       return;
     }
   }
   
-  println("Wifi connected with sucessfuly");
+  Serial.println("\nWifi connected with sucessfuly");
 }
 
 void setup() {
@@ -81,6 +90,7 @@ void setup() {
   esp_err_t err = esp_camera_init(&config);
   if (err != ESP_OK) {
     Serial.printf("Camera init failed with error 0x%x", err);
+    ESP.restart();
     return;
   }
 
@@ -88,16 +98,21 @@ void setup() {
 }
 
 void loop() {
+  String nameFile = String(imgNumber);
+  
   if((timeInitial + CAPTURE_TIME) < millis()) {
-    capImg();
+    capImg(nameFile);
     timeInitial = millis();
   }
+
+  imgNumber++;
 }
 
-void capImg() {
-  Serial.println("Connecting at " + host + ".");
+void capImg(String nameFile) {
+  Serial.println("Connecting at " + String(host) + ".");
 
   WiFiClientSecure client;
+  client.setInsecure();
 
   if(client.connect(host, 443)) {
     Serial.println("Connected with succesfuly.");
@@ -118,26 +133,38 @@ void capImg() {
     String imageFile = "";
 
     for(int i = 0; i < fb->len; i++) {
-      base64_encode(output, (input++), 3)/
+      base64_encode(output, (input++), 3);
       if(i % 3 == 0) {
-        imageFile += urlencode(String(output));
+        imageFile += urlEncode(String(output));
       } 
     }
 
-    String data = nameFile + mimeType + Img;
-    esp_camera_fb_return(fb);
+    String Data = nameFile + mimeType + img;
 
+    esp_camera_fb_return(fb);
+    
+    Serial.println("Sending img for cloud, waiting answer.");
+    
+    client.println("POST " + myScript + " HTTP/1.1");
+    client.println("Host: " + String(host));
+    client.println("Content-Length: " + String(Data.length() + imageFile.length()));
+    client.println("Content-Type: application/x-www-form-urlencoded");
+    client.println();
+  
+    client.print(Data);
+    
     for(int index = 0; index < imageFile.length(); index += 1000) {
-      client.print(imageFile.sbstring(index, (index + 1000)));
+      client.print(imageFile.substring(index, (index + 1000)));
     }
 
-    Serial.println("Sending img for cloud, waiting answer.");
     long int tempoConexao = millis();
 
     while(!client.available()) {
-      Serial.println('.');
+      Serial.print('.');
+      delay(100);
       if((tempoConexao + TIME_LIMIT) < millis()) {
         Serial.println("\nDon't received anser, send failed.\n");
+        break;
       }
     }
 
@@ -145,13 +172,13 @@ void capImg() {
       Serial.println(char(client.read()));
     }
   } else {
-    Serial.println("Connection at " + host + "failed.");
+    Serial.println("Connection at " + String(host) + " //failed.");
   }
   
   client.stop();
 }
 
-String ulrEncode(String str) {
+String urlEncode(String str) {
   String encodedString = "";
   char c;
   char code0, code1, code2;
@@ -172,7 +199,7 @@ String ulrEncode(String str) {
         code0 = c + '0';
 
         if(c > 9) {
-          code0 = c - 10 'A';
+          code0 = c - 10 + 'A';
         }
 
         code2 = '\0';
