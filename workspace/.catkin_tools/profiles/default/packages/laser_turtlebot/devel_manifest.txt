@@ -1,6 +1,0 @@
-laser_turtlebot
-/home/pedrolucas/workspace/devel/.private/laser_turtlebot/cmake.lock /home/pedrolucas/workspace/devel/./cmake.lock
-/home/pedrolucas/workspace/devel/.private/laser_turtlebot/lib/libMoveTurtlebot.so /home/pedrolucas/workspace/devel/lib/libMoveTurtlebot.so
-/home/pedrolucas/workspace/devel/.private/laser_turtlebot/lib/pkgconfig/laser_turtlebot.pc /home/pedrolucas/workspace/devel/lib/pkgconfig/laser_turtlebot.pc
-/home/pedrolucas/workspace/devel/.private/laser_turtlebot/share/laser_turtlebot/cmake/laser_turtlebotConfig.cmake /home/pedrolucas/workspace/devel/share/laser_turtlebot/cmake/laser_turtlebotConfig.cmake
-/home/pedrolucas/workspace/devel/.private/laser_turtlebot/share/laser_turtlebot/cmake/laser_turtlebotConfig-version.cmake /home/pedrolucas/workspace/devel/share/laser_turtlebot/cmake/laser_turtlebotConfig-version.cmake

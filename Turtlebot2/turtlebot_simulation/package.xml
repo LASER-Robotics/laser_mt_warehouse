@@ -1,0 +1,33 @@
+<package format ="2">
+  <name>turtlebot_simulation</name>
+  <version>2.2.3</version>
+  <description>Gazebo launchers and worlds for TurtleBot simulation</description>
+  <maintainer email="marcus.liebhardt@yujinrobot.com">Marcus Liebhardt</maintainer>
+  <license>BSD</license>
+  <url type="website">http://ros.org/wiki/turtlebot_gazebo</url>
+  <url type="repository">https://github.com/turtlebot/turtlebot_simulator</url>
+  <url type="bugtracker">https://github.com/turtlebot/turtlebot_simulator/issues</url>
+  <author email="turtlebot@willowgarage.com">Willow Garage</author>
+  
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>roscpp</depend>
+  <depend>std_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>tf</depend>
+  <depend>gazebo_ros</depend>
+
+  
+  <exec_depend>yocs_cmd_vel_mux</exec_depend>
+<!--  <exec_depend>create_gazebo_plugins</exec_depend> disable irobot create due to the compile error in plugin-->
+  <exec_depend>diagnostic_aggregator</exec_depend>
+  <exec_depend>depthimage_to_laserscan</exec_depend>
+  <exec_depend>kobuki_gazebo_plugins</exec_depend>
+  <exec_depend>robot_pose_ekf</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>turtlebot_bringup</exec_depend>
+  <exec_depend>turtlebot_description</exec_depend>
+  <exec_depend>turtlebot_navigation</exec_depend>
+  <exec_depend>xacro</exec_depend>
+</package>

@@ -1,6 +1,0 @@
-turtlebot3_simulation
-/home/pedrolucas/workspace/devel/.private/turtlebot3_simulation/cmake.lock /home/pedrolucas/workspace/devel/./cmake.lock
-/home/pedrolucas/workspace/devel/.private/turtlebot3_simulation/lib/pkgconfig/turtlebot3_simulation.pc /home/pedrolucas/workspace/devel/lib/pkgconfig/turtlebot3_simulation.pc
-/home/pedrolucas/workspace/devel/.private/turtlebot3_simulation/lib/turtlebot3_simulation/turtlebot3_drive /home/pedrolucas/workspace/devel/lib/turtlebot3_simulation/turtlebot3_drive
-/home/pedrolucas/workspace/devel/.private/turtlebot3_simulation/share/turtlebot3_simulation/cmake/turtlebot3_simulationConfig-version.cmake /home/pedrolucas/workspace/devel/share/turtlebot3_simulation/cmake/turtlebot3_simulationConfig-version.cmake
-/home/pedrolucas/workspace/devel/.private/turtlebot3_simulation/share/turtlebot3_simulation/cmake/turtlebot3_simulationConfig.cmake /home/pedrolucas/workspace/devel/share/turtlebot3_simulation/cmake/turtlebot3_simulationConfig.cmake

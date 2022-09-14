@@ -1,5 +1,0 @@
-turtlebot3_navigation
-/home/pedrolucas/workspace/devel/.private/turtlebot3_navigation/cmake.lock /home/pedrolucas/workspace/devel/./cmake.lock
-/home/pedrolucas/workspace/devel/.private/turtlebot3_navigation/lib/pkgconfig/turtlebot3_navigation.pc /home/pedrolucas/workspace/devel/lib/pkgconfig/turtlebot3_navigation.pc
-/home/pedrolucas/workspace/devel/.private/turtlebot3_navigation/share/turtlebot3_navigation/cmake/turtlebot3_navigationConfig.cmake /home/pedrolucas/workspace/devel/share/turtlebot3_navigation/cmake/turtlebot3_navigationConfig.cmake
-/home/pedrolucas/workspace/devel/.private/turtlebot3_navigation/share/turtlebot3_navigation/cmake/turtlebot3_navigationConfig-version.cmake /home/pedrolucas/workspace/devel/share/turtlebot3_navigation/cmake/turtlebot3_navigationConfig-version.cmake

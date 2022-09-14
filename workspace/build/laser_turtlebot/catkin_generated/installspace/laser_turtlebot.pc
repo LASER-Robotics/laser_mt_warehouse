@@ -1,8 +1,0 @@
-prefix=/home/pedrolucas/workspace/install
-
-Name: laser_turtlebot
-Description: Description of laser_turtlebot
-Version: 0.1.0
-Cflags: -I${prefix}/include
-Libs: -L${prefix}/lib -lMoveTurtlebot
-Requires: roscpp geometry_msgs

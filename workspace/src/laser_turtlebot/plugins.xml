@@ -1,5 +1,0 @@
-<library path="lib/libMoveTurtlebot">
-  <class name="laser_turtlebot/MoveTurtlebot" type="laser_turtlebot::MoveTurtlebot" base_class_type="nodelet::Nodelet">
-    <description>The move turtlebot nodelet</description>
-  </class>
-</library>
