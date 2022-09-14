@@ -1,1 +1,0 @@
-/home/pedrolucas/workspace/devel/.private/laser_turtlebot/share/laser_turtlebot/cmake/laser_turtlebotConfig.cmake
