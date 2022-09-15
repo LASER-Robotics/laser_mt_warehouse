@@ -1,18 +1,22 @@
-import cv2, time, webbrowser
+import cv2
+import Api_drive_consume
 
-#def getImgBarCode(ipAddress):
-#    webbrowser.open(ipAddress)
+i = 0
 
-#ipAddress = input("Ip address of camera:\n")
+while True:
+    drive = Api_drive_consume.Drive()
+    status = drive.fileDownload("Bc_" + str(i) + ".jpg")
 
-#while True:
-#getImgBarCode(ipAddress)
-#imgPath = input("Caminho da imagem do código de barras\n")
+    if(status == 111):
+        continue
 
-barCodeDetector = cv2.barcode_BarcodeDetector()
-img = cv2.imread("/home/laser/Desktop/Mambo-Turtle-Warehouse/Mambo/src/camera_drone/Imgs_tests/drive-download-20220914T204440Z-001/Bc_5.jpg")
+    barCodeDetector = cv2.barcode_BarcodeDetector()
+    img = cv2.imread("/home/laser/Desktop/Mambo-Turtle-Warehouse/Mambo/src/camera_drone/Imgs_tests/" + "Bc_" + str(i) + ".jpg")
 
-ok, decodedInfo, decodedType, corners = barCodeDetector.detectAndDecode(img)
+    ok, decodedInfo, decodedType, corners = barCodeDetector.detectAndDecode(img)
 
-print(ok)
-print(f"Decoded barcode information: {decodedInfo}")
+    print(ok)
+    print(f"Decoded barcode information: {decodedInfo}")
+    
+    i += 1
+
