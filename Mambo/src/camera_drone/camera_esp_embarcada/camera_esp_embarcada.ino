@@ -13,7 +13,6 @@
 #define XCLK_GPIO_NUM      0
 #define SIOD_GPIO_NUM     26
 #define SIOC_GPIO_NUM     27
-
 #define Y9_GPIO_NUM       35
 #define Y8_GPIO_NUM       34
 #define Y7_GPIO_NUM       39
@@ -27,8 +26,7 @@
 #define PCLK_GPIO_NUM     22
 #endif
 
-#define CAPTURE_TIME 3000
-#define TIME_LIMIT 10000
+#define TIME_LIMIT 100
 
 int imgNumber = 0;
 long int timeInitial = millis();
@@ -100,11 +98,8 @@ void setup() {
 void loop() {
   String nameFile = "&fileName=Bc_" + String(imgNumber) + ".jpg";
   
-  if((timeInitial + CAPTURE_TIME) < millis()) {
-    if(capImg(nameFile)) {
-      imgNumber++;
-    }
-    timeInitial = millis();
+  if(capImg(nameFile)) {
+    imgNumber++;
   }
 }
 

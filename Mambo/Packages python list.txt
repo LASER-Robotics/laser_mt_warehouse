@@ -1,0 +1,14 @@
+pip install untangle
+pip install zeroconf
+sudo apt-get install bluetooth
+sudo apt-get install bluez 
+sudo apt-get install python-bluez
+sudo apt-get install python-pip libglib2.0-dev
+sudo pip install bluepy
+sudo apt-get update
+pip install pyparrot
+
+pip install google-api-python-client google-auth-httplib2 google-auth-oauthlib 
+
+pip install opencv-python
+pip install opencv-contrib-python
