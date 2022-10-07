@@ -1,9 +1,10 @@
+from turtle import pos
 import rospy
 import yaml
 import actionlib
 from actionlib_msgs.msg import *
-from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
-from geometry_msgs.msg import Pose, Point, Quaternion
+from move_base_msgs.msg import MoveBaseGoal
+from geometry_msgs.msg import Pose, Point, Quaternion, PoseStamped
 #from tf.transformations import euler_from_quaternion
 
 class Turtle:
@@ -11,32 +12,34 @@ class Turtle:
                 with open("Turtlebot2/src/route.yaml", "r") as stream:
                         self.mapPoints = yaml.load(stream)
                 
-                self.move_base = actionlib.SimpleActionClient("move_base", MoveBaseAction)
-                self.move_base.wait_for_server(rospy.Duration(5))
+                self.pub = rospy.Publisher("move_base_simple/goal", PoseStamped, queue_size=1)
+                #self.move_base = actionlib.SimpleActionClient("move_base", MoveBaseAction)
+                #self.move_base.wait_for_server(rospy.Duration(5))
                 
 
         def go_to_shelf(self):
-                print(self.mapPoints["position"]["x"])
-                print(self.mapPoints["position"]["y"])
-                print(self.mapPoints["quartenion"])
+                self.pos = PoseStamped()
 
-                self.pos = MoveBaseGoal()
+                print("antes dos pontos")
+                self.pos.header.frame_id = "map"
+                self.pos.header.stamp = rospy.Time.now()
+                self.pos.pose = Pose(Point(6, 15, 0), Quaternion(0, 0, 0.3, 0.9))
 
-                self.pos.target_pose.header.frame_id = "map"
-                self.pos.target_pose.header.stamp = rospy.Time.now()
-                self.pos.target_pose.pose = Pose(Point(self.mapPoints["position"]["x"], self.mapPoints["position"]["y"], 0), 
-                                        Quaternion(self.mapPoints["quartenion"]["r1"], self.mapPoints["quartenion"]["r2"], self.mapPoints["quartenion"]["r3"], self.mapPoints["quartenion"]["r4"]))
+                #Pose(Point(self.mapPoints[0]["position"]["x"], self.mapPoints[0]["position"]["y"], 0), 
+                 #                       Quaternion(self.mapPoints[0]["quaternion"]["r1"], self.mapPoints[0]["quaternion"]["r2"], self.mapPoints[0]["quaternion"]["r3"], self.mapPoints[0]["quaternion"]["r4"]))
 
-                self.move_base.send_goal(self.pos)
+                self.pub.publish(self.pos)
                 
-                result = False
+                print("depois dos pontos")
+                #result = False
 
-                for x in range(2):
-                        sucess = self.move_base.wait_for_result(rospy.Duration(60))
-                        state = self.move_base.get_state()
+                #for x in range(2):
+                      #  sucess = self.move_base.wait_for_result(rospy.Duration(5))
+                       # state = self.move_base.get_state()
 
-                        if sucess and state == GoalStatus.SUCCEEDED:
-                                result = True
-                                break                
+                        #if sucess and state == GoalStatus.SUCCEEDED:
+                         #       print("consegui passar")
+                          #      result = True
+                           #     break                
                 
-                return result
+                return 
