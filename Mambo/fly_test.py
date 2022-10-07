@@ -15,7 +15,7 @@ if sucesso:
         for i in range(1):
             mambo.safe_takeoff(1)
             mambo.smart_sleep(2)
-            mambo.fly_direct(0, 0, 0, 16, 9)
+            mambo.fly_direct(0, 0, 0, 14, 11)
             mambo.fly_direct(0, 0, 0, -10, 14)
             mambo.safe_land(5)
 

@@ -28,7 +28,7 @@ def _deactivate(args):
 _deactivate(["nondestructive"])
 aliases["deactivate"] = _deactivate
 
-$VIRTUAL_ENV = r"/home/laser/Desktop/Mambo-Turtle-Warehouse-main/Python-env"
+$VIRTUAL_ENV = r"/home/laser/Desktop/Mambo-Turtle-Warehouse/Python-env"
 
 $_OLD_VIRTUAL_PATH = $PATH
 $PATH = $PATH[:]
