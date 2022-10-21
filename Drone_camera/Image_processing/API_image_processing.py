@@ -10,9 +10,9 @@ def barCodeProcessor(path):
         image = cv2.imread(path)
         ok, decodedInfo, _, _ = barCodeDetector.detectAndDecode(image)
         
-        print(f"Read Status: {ok}")
+        print(f"Qr Status: {ok}")
         if ok:
-            print(f"Decoded Information: {decodedInfo}")
+            print(f"Qr Status: {ok}, Decoded Information: {decodedInfo}")
 
 
 HOST = "192.168.1.46"  
@@ -21,7 +21,7 @@ PORT = 4000
 imageNumber = 0
 path = "/home/Augusto_V/Documents/Mambo-Turtle-Warehouse/Drone_camera/Image_processing/Images_processeds/Bc_"
 imageBytes = bytes()
-received = False
+startReceiver = False
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as socket_server:
     socket_server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -35,9 +35,9 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as socket_server:
         while conn:
             data = conn.recv(2048)
             
-            if data.find(b"[") != -1 and not received:
+            if data.find(b"[") != -1 and not startReceiver:
                 imageBytes += data[data.find(b"[") + 1:]
-                received = True
+                startReceiver = True
                      
             if data.find(b"]") != -1:
                 imageBytes += data[:data.find(b"]")]
@@ -48,13 +48,13 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as socket_server:
                 barCodeProcessor(path + str(imageNumber) + ".jpg")
                 
                 imageNumber += 1
-                received = False
+                startReceiver = False
                 
                 if data.find(b"[") != -1:
                     imageBytes = data[data.find(b"[") + 1:]
-                    received = True
+                    startReceiver = True
                 else:
                     imageBytes = b''
-                    received = False
-            elif not data.find(b"[") != -1 and received:
+                    startReceiver = False
+            elif not data.find(b"[") != -1 and startReceiver:
                 imageBytes += data
