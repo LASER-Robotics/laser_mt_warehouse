@@ -8,7 +8,7 @@ if [ "${BASH_SOURCE-}" = "$0" ]; then
 fi
 
 deactivate () {
-    unset -f pydoc >/dev/null 2>&1 || true
+    unset -f pydoc >/dev/null 2>&1
 
     # reset old environment variables
     # ! [ -z ${VAR+_} ] returns true if VAR is declared at all
@@ -23,10 +23,12 @@ deactivate () {
         unset _OLD_VIRTUAL_PYTHONHOME
     fi
 
-    # The hash command must be called to get it to forget past
-    # commands. Without forgetting past commands the $PATH changes
-    # we made may not be respected
-    hash -r 2>/dev/null
+    # This should detect bash and zsh, which have a hash command that must
+    # be called to get it to forget past commands.  Without forgetting
+    # past commands the $PATH changes we made may not be respected
+    if [ -n "${BASH-}" ] || [ -n "${ZSH_VERSION-}" ] ; then
+        hash -r 2>/dev/null
+    fi
 
     if ! [ -z "${_OLD_VIRTUAL_PS1+_}" ] ; then
         PS1="$_OLD_VIRTUAL_PS1"
@@ -44,10 +46,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV='/home/augusto/Documentos/Mambo-Turtle-Warehouse/Python-env'
-if ([ "$OSTYPE" = "cygwin" ] || [ "$OSTYPE" = "msys" ]) && $(command -v cygpath &> /dev/null) ; then
-    VIRTUAL_ENV=$(cygpath -u "$VIRTUAL_ENV")
-fi
+VIRTUAL_ENV='/home/Augusto_V/Documents/Mambo-Turtle-Warehouse/Python-env'
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
@@ -63,7 +62,7 @@ fi
 if [ -z "${VIRTUAL_ENV_DISABLE_PROMPT-}" ] ; then
     _OLD_VIRTUAL_PS1="${PS1-}"
     if [ "x" != x ] ; then
-        PS1="() ${PS1-}"
+        PS1="${PS1-}"
     else
         PS1="(`basename \"$VIRTUAL_ENV\"`) ${PS1-}"
     fi
@@ -77,7 +76,9 @@ pydoc () {
     python -m pydoc "$@"
 }
 
-# The hash command must be called to get it to forget past
-# commands. Without forgetting past commands the $PATH changes
-# we made may not be respected
-hash -r 2>/dev/null
+# This should detect bash and zsh, which have a hash command that must
+# be called to get it to forget past commands.  Without forgetting
+# past commands the $PATH changes we made may not be respected
+if [ -n "${BASH-}" ] || [ -n "${ZSH_VERSION-}" ] ; then
+    hash -r 2>/dev/null
+fi
