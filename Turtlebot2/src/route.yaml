@@ -1,3 +1,4 @@
-- {position: { x: 5.0, y: 12.0}, quaternion: {r1: 0, r2: 0, r3: -0.628, r4: 0.778}}
-- {position: { x: 7.0, y: 12.0}, quaternion: {r1: 0, r2: 0, r3: -0.628, r4: 0.778}}
-- {position: { x: 5.0, y: 12.0}, quaternion: {r1: 0, r2: 0, r3: -0.628, r4: 0.778}}
+- {filename: 'parede central', position: { x: 1.08, y: 0.185}, quaternion: {r1: 0, r2: 0, r3: 0.999, r4: -0.041}} # ponto parede
+- {filename: 'ponto central', position: { x: 5.09, y: 0.264}, quaternion: {r1: 0, r2: 0, r3: 0.999, r4: -0.049}} # ponto central
+- {filename: 'parede esquerda', position: { x: 5.25, y: -3.32}, quaternion: {r1: 0, r2: 0, r3: -0.671, r4: 0.742}} # ponto parede rasgada
+- {filename: 'ponto central', position: { x: 5.09, y: 0.264}, quaternion: {r1: 0, r2: 0, r3: 0.999, r4: -0.049}} # ponto central
