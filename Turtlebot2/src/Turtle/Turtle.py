@@ -42,3 +42,9 @@ class Turtle:
         self.shelfNumber += 1
         
         return True
+
+    def check_end_route(self):
+        if self.shelfNumber == 4:
+            return True
+        else:
+            return False 

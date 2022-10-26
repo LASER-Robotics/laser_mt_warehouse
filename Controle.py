@@ -10,11 +10,11 @@ end_route = False
 status_turtle = turtle.go_to_shelf()
 
 while not end_route:
-    if(status_turtle):
+    if status_turtle:
         turtle.stop()
         status_mambo = mambo.fly()
 
-        if(status_mambo):
+        if status_mambo:
             turtle.go_to_shelf()
     
     end_route = turtle.check_end_route()
