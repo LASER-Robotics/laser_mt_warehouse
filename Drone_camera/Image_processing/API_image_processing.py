@@ -21,6 +21,7 @@ PORT = 4000
 imageNumber = 0
 path = "/home/Augusto_V/Documents/Mambo-Turtle-Warehouse/Drone_camera/Image_processing/Images_processeds/Bc_"
 imageBytes = bytes()
+
 startReceiver = False
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as socket_server:

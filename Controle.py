@@ -1,4 +1,4 @@
-#import rospy
+import rospy
 from Mambo.src.Drone import Drone
 from Turtlebot2.src.Turtle import Turtle
 
