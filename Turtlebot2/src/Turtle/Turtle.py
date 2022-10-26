@@ -36,7 +36,9 @@ class Turtle:
                 self.move_base.cancel_goal()
                 rospy.loginfo("Failed to reach %s pose", name)
                 rospy.loginfo("Reached %s pose", name)
+                
+                self.go_to_shelf()
         
         self.shelfNumber += 1
         
-        rospy.sleep(1)
+        return True

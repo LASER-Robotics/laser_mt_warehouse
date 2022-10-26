@@ -7,7 +7,6 @@ rospy.init_node("follow_route", anonymous = False)
 turtle = Turtle()
 
 end_route = False
-print("antes da função")
 status_turtle = turtle.go_to_shelf()
 
 while not end_route:
