@@ -13,7 +13,7 @@ class Turtle:
         rospy.loginfo("Wait for the action server to come up")
         self.move_base.wait_for_server(rospy.Duration(5))
         
-        with open("Turtlebot2/src/route.yaml", "r") as stream:
+        with open("/home/turtlebot/Mambo-Turtle-Warehouse/Turtlebot2/src/route.yaml", "r") as stream:
             self.mapPoints = yaml.load(stream)
                 
     def go_to_shelf(self):
