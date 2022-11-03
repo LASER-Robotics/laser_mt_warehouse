@@ -9,6 +9,8 @@ class Turtle:
     def __init__(self):
         self.shelfNumber = 0;    
         
+        rospy.init_node("follow_route", anonymous = False)
+        
         self.move_base = actionlib.SimpleActionClient('move_base', MoveBaseAction)
         rospy.loginfo("Wait for the action server to come up")
         self.move_base.wait_for_server(rospy.Duration(5))
@@ -41,7 +43,7 @@ class Turtle:
         
         self.shelfNumber += 1
         
-        return True
+        return self.shelfNumber
 
     def check_end_route(self):
         if self.shelfNumber == 4:
