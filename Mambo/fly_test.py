@@ -2,7 +2,6 @@ from pyparrot.Minidrone import Mambo
 
 mambo = Mambo("d0:3a:62:2d:e6:3b", False)
 
-
 sucesso = mambo.connect(3)
 
 if sucesso:
