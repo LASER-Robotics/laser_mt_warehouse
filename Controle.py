@@ -1,21 +1,24 @@
-#import rospy
+from time import sleep
 from Mambo.src.Drone import Drone
 from Turtlebot2.src.Turtle import Turtle
 
 mambo = Drone("d0:3a:62:2d:e6:3b")
-rospy.init_node("follow_route", anonymous = False)
+
+if not mambo.get_connectionState():
+    exit()
+
 turtle = Turtle()
 
+sleep(15)
+
 end_route = False
-print("antes da função")
 status_turtle = turtle.go_to_shelf()
 
 while not end_route:
-    if(status_turtle):
-        turtle.stop()
+    if status_turtle % 2 == 0:
         status_mambo = mambo.fly()
 
-        if(status_mambo):
+        if status_mambo:
             turtle.go_to_shelf()
     
     end_route = turtle.check_end_route()

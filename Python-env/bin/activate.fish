@@ -21,7 +21,7 @@ function deactivate -d 'Exit virtualenv mode and return to the normal environmen
         if test (echo $FISH_VERSION | head -c 1) -lt 3
             set -gx PATH (_fishify_path "$_OLD_VIRTUAL_PATH")
         else
-            set -gx PATH $_OLD_VIRTUAL_PATH
+            set -gx PATH "$_OLD_VIRTUAL_PATH"
         end
         set -e _OLD_VIRTUAL_PATH
     end
@@ -57,13 +57,13 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV '/home/augusto/Documentos/Mambo-Turtle-Warehouse/Python-env'
+set -gx VIRTUAL_ENV '/home/Augusto_V/Documents/Mambo-Turtle-Warehouse/Python-env'
 
 # https://github.com/fish-shell/fish-shell/issues/436 altered PATH handling
 if test (echo $FISH_VERSION | head -c 1) -lt 3
    set -gx _OLD_VIRTUAL_PATH (_bashify_path $PATH)
 else
-    set -gx _OLD_VIRTUAL_PATH $PATH
+    set -gx _OLD_VIRTUAL_PATH "$PATH"
 end
 set -gx PATH "$VIRTUAL_ENV"'/bin' $PATH
 
@@ -88,9 +88,9 @@ if test -z "$VIRTUAL_ENV_DISABLE_PROMPT"
         # Prompt override provided?
         # If not, just prepend the environment name.
         if test -n ''
-            printf '(%s) ' ''
+            printf '%s%s' '' (set_color normal)
         else
-            printf '(%s) ' (basename "$VIRTUAL_ENV")
+            printf '%s(%s) ' (set_color normal) (basename "$VIRTUAL_ENV")
         end
 
         string join -- \n $prompt # handle multi-line prompts

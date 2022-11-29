@@ -1,6 +1,6 @@
 #include "esp_camera.h"
 #include <WiFi.h>
-#include "Base64.h"
+#include <base64.h>
 #include "soc/soc.h"
 #include "soc/rtc_cntl_reg.h"
 
@@ -26,16 +26,16 @@
 #endif
 
 
-const char *ssid = "LAB_ROBOTICA";
-const char *password = "UAV1X500";
-//const char *ssid = "NTGR_B9CC";
-//const char *password = "3bKo6A6X";
+//const char *ssid = "LAB_ROBOTICA";
+//const char *password = "UAV1X500";
+const char *ssid = "NTGR_B9CC";
+const char *password = "3bKo6A6X";
 WiFiClient client;
-const char *host = "192.168.0.109";
+const char *host = "192.168.1.46";
 const int port = 4000;
 
 
-void wifiConect(const char* ssid, const char* password) {
+void wifiConnect(const char* ssid, const char* password) {
   WiFi.begin(ssid, password);
   int tempoConexao = millis();
   while (WiFi.status() != WL_CONNECTED) {
@@ -89,7 +89,12 @@ void setup() {
     return;
   }
 
-  wifiConect(ssid, password);
+  wifiConnect(ssid, password);
+
+  if (!client.connect(host, port)) {
+    Serial.println("client not connected");
+    ESP.restart();
+  }
 }
 
 void loop() {
@@ -98,10 +103,6 @@ void loop() {
 
 
 void capImg() {
-  if(!client.connect(host, port)) {
-    Serial.println("client not connected");
-    ESP.restart();
-  }
   Serial.println("Connected with succesfuly.");
 
   camera_fb_t *fb = nullptr;
@@ -114,60 +115,21 @@ void capImg() {
     return;
   }
 
-  char *input = (char*)fb->buf;
-  char output[base64_enc_len(3)];
-  String imageData = "";
-
-  for (int i = 0; i < fb->len; i++) {
-    base64_encode(output, (input++), 3);
-    if (i % 3 == 0) {
-      imageData += urlEncode(String(output));
-    }
-  }
+  String imageData = imageEncodeToBase64(fb);
   
   esp_camera_fb_return(fb);
-
+  
   Serial.println("send image for cloud.");
-  Serial.println(imageData.length());
+  client.print("[");
   for (int index = 0; index < imageData.length(); index += 1000) {
       client.print(imageData.substring(index, (index + 1000)));
   }
-
-  client.stop();
+  client.print("]");
 }
 
-String urlEncode(String str) {
-  String encodedString = "";
-  char c;
-  char code0, code1, code2;
+String imageEncodeToBase64(const camera_fb_t* fb) {
+  String encodedImage;
+  encodedImage = base64::encode(fb->buf, fb->len);
 
-  for (int i = 0; i < str.length(); i++) {
-    c = str.charAt(i);
-
-    if (c == ' ' || isalnum(c)) {
-      encodedString += c;
-    } else {
-      code1 = (c & 0xf) + '0';
-
-      if ((c & 0xf) > 9) {
-        code1 = (c & 0xf) - 10 + 'A';
-      }
-
-      c = (c >> 4) & 0xf;
-      code0 = c + '0';
-
-      if (c > 9) {
-        code0 = c - 10 + 'A';
-      }
-
-      code2 = '\0';
-      encodedString += '%';
-      encodedString += code0;
-      encodedString += code1;
-    }
-
-    yield();
-  }
-
-  return encodedString;
+  return encodedImage;
 }
