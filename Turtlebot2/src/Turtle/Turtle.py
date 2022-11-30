@@ -6,8 +6,8 @@ from actionlib_msgs.msg import *
 from geometry_msgs.msg import Pose, Point, Quaternion
 
 class Turtle:
-    def __init__(self):
-        self.shelfNumber = 0;    
+    def __init__(self, ID):
+        self.shelfNumber = 0
         
         rospy.init_node("follow_route", anonymous = False)
         
@@ -15,7 +15,7 @@ class Turtle:
         rospy.loginfo("Wait for the action server to come up")
         self.move_base.wait_for_server(rospy.Duration(5))
         
-        with open("/home/turtlebot/Mambo-Turtle-Warehouse/Turtlebot2/src/route.yaml", "r") as stream:
+        with open("/home/turtlebot/Mambo-Turtle-Warehouse/Turtlebot2/src/route" + ID + ".yaml", "r") as stream:
             self.mapPoints = yaml.load(stream)
                 
     def go_to_shelf(self):
@@ -46,7 +46,7 @@ class Turtle:
         return self.shelfNumber
 
     def check_end_route(self):
-        if self.shelfNumber == 4:
+        if self.shelfNumber == 2:
             return True
         else:
             return False 
