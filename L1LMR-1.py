@@ -6,7 +6,7 @@ mambo = Drone("d0:3a:62:2d:e6:3b")
 if not mambo.get_connectionState():
     exit()
 
-turtle = Turtle(ID=1)
+turtle = Turtle(ID="1")
 
 end_route = False
 status_turtle = turtle.go_to_shelf()
