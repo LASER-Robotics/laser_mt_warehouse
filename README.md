@@ -54,8 +54,6 @@
     <li>Espere o script terminar de buscar o endereço do drone e depois salve-o em algum lugar.</li>
 </ol>
 
-<h2>Drone</h2>
-
 <h2>Turtlebot 2</h2>
 
 <h3>EM CONSTRUÇÃO</h3>
