@@ -12,7 +12,7 @@ class Drone:
     def fly(self):
         if self.connectionState:
             print("Drone: Going up")
-            self.mambo.safe_takeoff(2)
+            self.mambo.safe_takeoff(100)
             self.mambo.fly_direct(0, 0, 0, 16, 8)
             self.mambo.smart_sleep(1)
             self.mambo.fly_direct(0, 0, 0, -10, 12)

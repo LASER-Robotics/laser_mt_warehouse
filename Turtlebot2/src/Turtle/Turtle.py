@@ -16,7 +16,7 @@ class Turtle:
         self.move_base.wait_for_server(rospy.Duration(5))
         
         with open("/home/turtlebot/Mambo-Turtle-Warehouse/Turtlebot2/src/route" + ID + ".yaml", "r") as stream:
-            self.mapPoints = yaml.load(stream)
+            self.mapPoints = yaml.safe_load(stream)
                 
     def go_to_shelf(self):
         name = self.mapPoints[self.shelfNumber]['filename']
