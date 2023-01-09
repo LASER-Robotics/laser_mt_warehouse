@@ -1,7 +1,0 @@
-Endereços bluetooth dos Mambos
-
-endereço bluetooth do drone com 4 hélices:
-d0:3a:62:2d:e6:3b
-
-endereço bluetooth do drone com adesivo
-d0:3a:64:1f:e6:3b
