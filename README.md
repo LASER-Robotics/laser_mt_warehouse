@@ -28,6 +28,8 @@
 
 <p>Ao montar o esquemático mostrado na figura vocês está pronto para compilar o código da câmera para o módulo ESP-CAM, o arquivo a ser compilado é o arquivo <a href="">Embedded_esp_cam.ino</a>.</p>
 
+<p>Depois de compilar o código basta desconectar todos os fios e ligar apenas os fios de alimentação 5V e GND para que o módulo execute o código compilado.</p>
+
 <h3>Servidor socket</h3>
 
 <p>Como nosso drone não possui desempenho suficiente para processar os códigos de barras a maneira de solucionar esse problema foi fazer o processamento externamente em outro computador.</p>
@@ -54,4 +56,17 @@
 
 <h2>Controladora</h2>
 
-<p>Por ultimo configure a controladora que vai fazer a união do robô aéreo e terrestre. Essa parte é bem rápida abra o arquivo <a href="">L1LMR1.py</a> pegue o endereço bluetooth do drone e coloque como parâmetro na inicialização da classe Drone, e depois coloque o ID do seu Turtlebot 2 dependendo de quantos L1LMR você irá usar, e pronto sua controladora está configurada.</p>
+<p>Por ultimo configure a controladora que vai fazer a união do robô aéreo e terrestre. Essa parte é bem rápida, abra o arquivo <a href="">L1LMR1.py</a> coloque o endereço bluetooth do drone como parâmetro na inicialização da classe Drone, depois coloque o ID do Turtlebot 2 dependendo de quantos L1LMR irá ser usado, e pronto a controladora está configurada.</p>
+
+<h1>Como lançar o L1LMR</h1>
+
+<p>Siga os próximos passos para que o L1LMR inicialize corretamente:</p>
+
+<ol>
+    <li>Posicione o Turtlebots 2 em sua posição inicial, e execute todos os launchers do ROS necessários.</li>
+    <li>Ligue o Mambo e coloque-o em cima do Turtlebot 2.</li>
+    <li>Ligue o server socket.</li>
+    <li>Execute o script da controladora.</li>
+</ol>
+
+<p>Pronto o L1LMR estará funcionando.</p>
