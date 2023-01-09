@@ -11,7 +11,9 @@
 <p>Após instalar o sistema operacional crie um ambiente virtual de trabalho python para que você possa instalar as dependências para executar o projeto, depois de criar o ambiente e estiver com ele ativado siga os passos abaixo:</p>
 
 <ol>
-    <li>execute a seguinte linha de comando no terminal</li>
+    <li>execute a seguinte linha de comando no terminal ```bash
+    pip install -r requirements. txt
+    ```</li>
 </ol>
 
 <h1>Como montar e lançar o L1LMR?</h1>
