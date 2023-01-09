@@ -2,7 +2,17 @@
 
 <h1>Arquitetura do robô</h1>
 
-<p>O robô é composto por um drone e um robô terrestre atuando como uma base de pouso movél, ao drone esta acoplado uma câmera para o processamento dos códigos de barras da warehouse</p>
+<p>O robô é composto por um drone e um robô terrestre atuando como uma base de pouso móvel, ao drone esta acoplado uma câmera para o processamento dos códigos de barras da warehouse</p>
+
+<h1>Setup</h1>
+
+<p>Como utilizamos o turtlebot 2 como nosso robô móvel precisamos utilizar como sistema operacional o ubuntu 16 pois a distribuição do ROS compativel com o turtlebot 2 é a kinetic</p>
+
+<p>Após instalar o sistema operacional crie um ambiente virtual de trabalho python para que você possa instalar as dependências para executar o projeto, depois de criar o ambiente e estiver com ele ativado siga os passos abaixo:</p>
+
+<ol>
+    <li>execute a seguinte linha de comando no terminal</li>
+</ol>
 
 <h1>Como montar e lançar o L1LMR?</h1>
 
@@ -21,3 +31,5 @@
 <p>Como nosso drone não possui desempenho suficiente para processar os códigos de barras a maneira de solucionar esse problema foi fazer o processamento externamente em outro computador.</p>
 
 <p>O módulo ESP-CAM publica as imagens capturadas no servidor socket e o servidor recolhe as imagens salva e as processas, salvamos porquê ao fim poderemos montar um video da visão do drone</p>
+
+<p>Para iniciar o server de processamento das imagens execute o script <a href="">API_image_processing_L1LMR1.py</a> depois é só ligar o módulo ESP_CAM e esperar as imagens começarem a ser salva e processadas.</p>
