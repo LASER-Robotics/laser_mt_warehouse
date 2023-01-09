@@ -24,6 +24,8 @@
 
 <p>Para compilar o código para o módulo ESP-CAM é preciso usar um módulo FTDI pois a ESP-CAM não possui entrada micro usb, através do módulo FTDI o código é passado através de comunicação serial.</p>
 
+<img src="">
+
 <p>Ao montar o esquemático mostrado na figura vocês está pronto para compilar o código da câmera para o módulo ESP-CAM, o arquivo a ser compilado é o arquivo <a href="">Embedded_esp_cam.ino</a>.</p>
 
 <h3>Servidor socket</h3>
@@ -32,4 +34,24 @@
 
 <p>O módulo ESP-CAM publica as imagens capturadas no servidor socket e o servidor recolhe as imagens salva e as processas, salvamos porquê ao fim poderemos montar um video da visão do drone.</p>
 
-<p>Para iniciar o server de processamento das imagens execute o script <a href="">API_image_processing_L1LMR1.py</a> depois é só ligar o módulo ESP_CAM e esperar as imagens começarem a ser salva e processadas.</p>
+<p>Para iniciar o server de processamento das imagens execute o script <a href="">API_image_processing_L1LMR1.py</a> depois é só ligar o módulo ESP-CAM e esperar as imagens começarem a ser salva e processadas.</p>
+
+<h2>Drone</h2>
+
+<p>O drone que utilizamos foi o mambo da marca Parrot, para controlar o drone é utilizado a biblioteca pyparrot, através da bilbioteca é possivel mandar comandos pré-programados para o mambo.</p>
+
+<p>Nenhum código é embarcado no drone pois ele é um dispositivo "caixa preta" a biblioteca atua como um protocolo de comunicação entre o drone e o script em python.</p>
+
+<p>A comunição com o drone pode ser feita através do BLE (bluetooth low energy) ou por WiFi, foi utilizado a comunicação por BLE. Para isso precisamos saber o endereço bluetooth do mambo siga os passos abaixos para conseguir o endereço do mambo.</p>
+
+<ol>
+    <li>Ligue o drone.</li>
+    <li>Abra um terminal e navegue até a pasta do seu ambiente virtual</li>
+    <li>execute o seguinte comando no seu terminal: 
+    ```
+    sudo python lib/python3.10/site-packages/pyparrot/scripts/findMinidrone.py
+    ```
+    </li>
+    <li>Espere o script terminar de buscar o endereço do drone e depois salve-o.</li>
+</ol>
+
