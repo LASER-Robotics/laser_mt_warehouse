@@ -49,7 +49,7 @@
     <li>Abra um terminal e navegue até a pasta do seu ambiente virtual.</li>
     <li>execute o seguinte comando no seu terminal:</li> 
     ```
-        sudo python lib/python3.10/site-packages/pyparrot/scripts/findMinidrone.py
+                                                sudo python lib/python3.10/site-packages/pyparrot/scripts/findMinidrone.py
     ```
     <li>Espere o script terminar de buscar o endereço do drone e depois salve-o.</li>
 </ol>
