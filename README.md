@@ -26,7 +26,7 @@
 
 <img src="https://github.com/LASER-Robotics/Mambo-Turtle-Warehouse/blob/main/imgs_for_README/Img_ESP_CAM_FTDI.jpeg">
 
-<p>Ao montar o esquemático mostrado na figura vocês está pronto para compilar o código da câmera para o módulo ESP-CAM, o arquivo a ser compilado é o arquivo <a href="https://github.com/LASER-Robotics/Mambo-Turtle-Warehouse/blob/main/Drone_camera/Embedded_esp_cam/src/Embedded_esp_cam.ino">Embedded_esp_cam.ino</a>.</p>
+<p>Ao montar o esquemático mostrado na figura vocês está pronto para compilar o código da câmera para o módulo ESP-CAM, o arquivo a ser compilado é o arquivo <a href="https://github.com/LASER-Robotics/Mambo-Turtle-Warehouse/blob/main/Drone_camera/Embedded_esp_cam/src/Embedded_esp_cam.ino">Embedded_esp_cam.ino</a>, mas antes de compilar configure o IP do server e a porta de acesso.</p>
 
 <p>Depois de compilar o código basta desconectar todos os fios e ligar apenas os fios de alimentação 5V e GND para que o módulo execute o código compilado.</p>
 
@@ -34,9 +34,9 @@
 
 <p>Como nosso drone não possui desempenho suficiente para processar os códigos de barras a maneira de solucionar esse problema foi fazer o processamento externamente em outro computador.</p>
 
-<p>O módulo ESP-CAM publica as imagens capturadas no servidor socket e o servidor recolhe as imagens salva e as processas, salvamos porquê ao fim poderemos montar um video da visão do drone.</p>
+<p>O módulo ESP-CAM publica as imagens capturadas no servidor socket e o servidor recolhe as imagens salva e as processas, salvamos porquê ao fim poderemos montar um video da visão do drone. Para salvarmos é necessário criar uma pasta e passar o PATH da pasta para o script do server <a href="https://github.com/LASER-Robotics/Mambo-Turtle-Warehouse/blob/main/Drone_camera/Image_processing/src/API_image_processing_L1LMR1.py">API_image_processing_L1LMR1.py</a>.</p>
 
-<p>Para iniciar o server de processamento das imagens execute o script <a href="https://github.com/LASER-Robotics/Mambo-Turtle-Warehouse/blob/main/Drone_camera/Image_processing/src/API_image_processing_L1LMR1.py">API_image_processing_L1LMR1.py</a> depois é só ligar o módulo ESP-CAM e esperar as imagens começarem a ser salva e processadas.</p>
+<p>Para iniciar o server de processamento das imagens execute o script <a href="https://github.com/LASER-Robotics/Mambo-Turtle-Warehouse/blob/main/Drone_camera/Image_processing/src/API_image_processing_L1LMR1.py">API_image_processing_L1LMR1.py</a>, lembre de colocar o mesmo IP e porta usado na compilação da ESP-CAM. Depois é só ligar o módulo ESP-CAM e esperar as imagens começarem a ser salva e processadas.</p>
 
 <h2>Drone</h2>
 
