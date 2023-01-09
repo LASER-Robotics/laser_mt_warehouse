@@ -76,3 +76,10 @@
 <p>Pronto o L1LMR estará funcionando.</p>
 
 <h1>Como usar mais de um L1LMR</h1>
+
+<ul>
+    <li>Primeiro compile o <a href="https://github.com/LASER-Robotics/Mambo-Turtle-Warehouse/blob/main/Drone_camera/Embedded_esp_cam/src/Embedded_esp_cam.ino">Embedded_esp_cam.ino</a> na ESP-CAM colocando uma nova porta para acesso da API de processamento.</li> 
+    <li>Agora clone os seguintes arquivos <a href="https://github.com/LASER-Robotics/Mambo-Turtle-Warehouse/blob/main/Drone_camera/Image_processing/src/API_image_processing_L1LMR1.py">API_image_processing_L1LMR1.py</a>, <a href="https://github.com/LASER-Robotics/Mambo-Turtle-Warehouse/blob/main/L1LMR-1.py">L1LMR1.py</a> enumerando o fim dos arquivos com o ID do novo L1LMR.</li> 
+    <li>Depois coloque a porta usada pela ESP-CAM para acessar a API, no arquivo do server e coloque o PATH da pasta para armazenar as imagens do novo L1LMR.</li>
+    <li>Siga os passos anteriores que ainda não foram feitos.</li>
+</ul>
