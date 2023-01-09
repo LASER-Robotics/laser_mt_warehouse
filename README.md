@@ -46,7 +46,7 @@
 
 <ol>
     <li>Ligue o drone.</li>
-    <li>Abra um terminal e navegue até a pasta do seu ambiente virtual</li>
+    <li>Abra um terminal e navegue até a pasta do seu ambiente virtual.</li>
     <li>execute o seguinte comando no seu terminal:</li> 
     ```
         sudo python lib/python3.10/site-packages/pyparrot/scripts/findMinidrone.py
