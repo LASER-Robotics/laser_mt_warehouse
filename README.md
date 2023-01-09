@@ -1,15 +1,15 @@
 <h1>L1LMR (Laser Logistic Multi Robots)</h1>
 
-<h2>Arquitetura do robo</h2>
+<h1>Arquitetura do robô</h1>
 
-<p>O robo e composto por um drone e um robo terrestre atuando como uma base de pouso movel, ao drone esta acoplado uma camera para o processamento dos codigos de barras da warehouse</p>
+<p>O robô é composto por um drone e um robô terrestre atuando como uma base de pouso movél, ao drone esta acoplado uma câmera para o processamento dos códigos de barras da warehouse</p>
 
-<h2>Como montar e lancar o L1LMR?</h2>
+<h1>Como montar e lançar o L1LMR?</h1>
 
-<h3>Camera</h3>
+<h2>Câmera</h2>
 
 <p>Comecaremos configurando a camera acoplada ao drone. Como o nosso drone nao tinha uma câmera colocamos um modúlo ESP-CAM para ser a nossa câmera.</p>
 
-<h4>ESP-CAM</h4>
+<h3>ESP-CAM</h3>
 
 
