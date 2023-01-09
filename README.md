@@ -24,9 +24,9 @@
 
 <p>Para compilar o código para o módulo ESP-CAM é preciso usar um módulo FTDI pois a ESP-CAM não possui entrada micro usb, através do módulo FTDI o código é passado através de comunicação serial.</p>
 
-<img src="">
+<img src="https://github.com/LASER-Robotics/Mambo-Turtle-Warehouse/blob/main/imgs_for_README/Img_ESP_CAM_FTDI.jpeg">
 
-<p>Ao montar o esquemático mostrado na figura vocês está pronto para compilar o código da câmera para o módulo ESP-CAM, o arquivo a ser compilado é o arquivo <a href="">Embedded_esp_cam.ino</a>.</p>
+<p>Ao montar o esquemático mostrado na figura vocês está pronto para compilar o código da câmera para o módulo ESP-CAM, o arquivo a ser compilado é o arquivo <a href="https://github.com/LASER-Robotics/Mambo-Turtle-Warehouse/blob/main/Drone_camera/Embedded_esp_cam/src/Embedded_esp_cam.ino">Embedded_esp_cam.ino</a>.</p>
 
 <p>Depois de compilar o código basta desconectar todos os fios e ligar apenas os fios de alimentação 5V e GND para que o módulo execute o código compilado.</p>
 
@@ -36,7 +36,7 @@
 
 <p>O módulo ESP-CAM publica as imagens capturadas no servidor socket e o servidor recolhe as imagens salva e as processas, salvamos porquê ao fim poderemos montar um video da visão do drone.</p>
 
-<p>Para iniciar o server de processamento das imagens execute o script <a href="">API_image_processing_L1LMR1.py</a> depois é só ligar o módulo ESP-CAM e esperar as imagens começarem a ser salva e processadas.</p>
+<p>Para iniciar o server de processamento das imagens execute o script <a href="https://github.com/LASER-Robotics/Mambo-Turtle-Warehouse/blob/main/Drone_camera/Image_processing/src/API_image_processing_L1LMR1.py">API_image_processing_L1LMR1.py</a> depois é só ligar o módulo ESP-CAM e esperar as imagens começarem a ser salva e processadas.</p>
 
 <h2>Drone</h2>
 
@@ -54,9 +54,13 @@
     <li>Espere o script terminar de buscar o endereço do drone e depois salve-o em algum lugar.</li>
 </ol>
 
+<h2>Drone</h2>
+
+<h3>EM CONSTRUÇÃO</h3>
+
 <h2>Controladora</h2>
 
-<p>Por ultimo configure a controladora que vai fazer a união do robô aéreo e terrestre. Essa parte é bem rápida, abra o arquivo <a href="">L1LMR1.py</a> coloque o endereço bluetooth do drone como parâmetro na inicialização da classe Drone, depois coloque o ID do Turtlebot 2 dependendo de quantos L1LMR irá ser usado, e pronto a controladora está configurada.</p>
+<p>Por ultimo configure a controladora que vai fazer a união do robô aéreo e terrestre. Essa parte é bem rápida, abra o arquivo <a href="https://github.com/LASER-Robotics/Mambo-Turtle-Warehouse/blob/main/L1LMR-1.py">L1LMR1.py</a> coloque o endereço bluetooth do drone como parâmetro na inicialização da classe Drone, depois coloque o ID do Turtlebot 2 dependendo de quantos L1LMR irá ser usado, e pronto a controladora está configurada.</p>
 
 <h1>Como lançar o L1LMR</h1>
 
@@ -70,3 +74,5 @@
 </ol>
 
 <p>Pronto o L1LMR estará funcionando.</p>
+
+<h1>Como usar mais de um L1LMR</h1>
