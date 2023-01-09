@@ -8,13 +8,11 @@
 
 <p>Como utilizamos o turtlebot 2 como nosso robô móvel precisamos utilizar como sistema operacional o ubuntu 16 pois a distribuição do ROS compativel com o turtlebot 2 é a kinetic</p>
 
-<p>Após instalar o sistema operacional crie um ambiente virtual de trabalho python para que você possa instalar as dependências para executar o projeto, depois de criar o ambiente e estiver com ele ativado siga os passos abaixo:</p>
+<p>Após instalar o sistema operacional crie um ambiente virtual de trabalho python para que você possa instalar as dependências para executar o projeto, depois de criar o ambiente e estiver com ele ativado execute a seguinte linha de comando no terminal para instalar as dependências do projeto
 
-<ol>
-    <li>execute a seguinte linha de comando no terminal ```
+```
     pip install -r requirements. txt
-    ```</li>
-</ol>
+```
 
 <h1>Como montar e lançar o L1LMR?</h1>
 
