@@ -1,12 +1,16 @@
 <h1>L1LMR (Laser Logistic Multi Robots)</h1>
 
-<h1>Arquitetura do robô</h1>
+<h1>O Sistema</h1>
 
 <p>O robô é composto por um drone e um robô terrestre atuando como uma base de pouso móvel, ao drone esta acoplado uma câmera para o processamento dos códigos de barras da warehouse.</p>
 
 <h1>Setup</h1>
 
-<p>Como utilizamos o turtlebot 2 como nosso robô móvel precisamos utilizar como sistema operacional o ubuntu 16 pois a distribuição do ROS compativel com o turtlebot 2 é a kinetic.</p>
+<p>Utilizou-se para o robô terrestre o Turtlebot 2, usando o Ubuntu 16.04 com a distribuição do <a href = "http://wiki.ros.org/kinetic/Installation/Ubuntu">ROS Kinetic </a>, mantendo a compatibilidade entre o robô e SO utilizado.</p>
+
+```
+    
+```
 
 <p>Após instalar o sistema operacional crie um ambiente virtual de trabalho python para que você possa instalar as dependências para executar o projeto, depois de criar o ambiente e estiver com ele ativado execute a seguinte linha de comando no terminal para instalar as dependências do projeto:</p>
 
