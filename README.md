@@ -14,7 +14,7 @@
     pip install -r requirements. txt
 ```
 
-<h1>Como montar e lançar o L1LMR?</h1>
+<h1>Como configurar o L1LMR</h1>
 
 <h2>Câmera</h2>
 
@@ -47,6 +47,11 @@
 <ol>
     <li>Ligue o drone.</li>
     <li>Abra um terminal e navegue até a pasta do seu ambiente virtual.</li>
-    <li>execute o seguinte comando no seu terminal: sudo python lib/python3.10/site-packages/pyparrot/scripts/ findMinidrone.py.</li> 
-    <li>Espere o script terminar de buscar o endereço do drone e depois salve-o.</li>
+    <li>execute o seguinte comando no seu terminal: 
+    sudo python lib/python3.10/site-packages/pyparrot/scripts/ findMinidrone.py.</li> 
+    <li>Espere o script terminar de buscar o endereço do drone e depois salve-o em algum lugar.</li>
 </ol>
+
+<h2>Controladora</h2>
+
+<p>Por ultimo configure a controladora que vai fazer a união do robô aéreo e terrestre. Essa parte é bem rápida abra o arquivo <a href="">L1LMR1.py</a> pegue o endereço bluetooth do drone e coloque como parâmetro na inicialização da classe Drone, e depois coloque o ID do seu Turtlebot 2 dependendo de quantos L1LMR você irá usar, e pronto sua controladora está configurada.</p>
