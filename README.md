@@ -6,16 +6,21 @@
 
 <h1>Setup</h1>
 
-<p>Utilizou-se para o robô terrestre o Turtlebot 2, usando o Ubuntu 16.04 com a distribuição do <a href = "http://wiki.ros.org/kinetic/Installation/Ubuntu">ROS Kinetic </a>, mantendo a compatibilidade entre o robô e SO utilizado.</p>
+<p>Utilizou-se para o robô terrestre o Turtlebot 2, usando o Ubuntu 16.04 com a distribuição do <a href = "http://wiki.ros.org/kinetic/Installation/Ubuntu">ROS Kinetic </a>, mantendo a compatibilidade entre o robô e SO utilizado. Logo abaixo contém um passo a passo de como realizar a instalação do Turtlebot no Ubuntu: </p>
 
 ```
+    sudo apt install ros-kinetic-turtlebot*
+    mkdir catkin_ws/src
+    catkin init
+    OBS: Dentro da pasta src coloque os itens contido em Turtlebot2/packages 
+    catkin build
     
 ```
 
 <p>Após instalar o sistema operacional crie um ambiente virtual de trabalho python para que você possa instalar as dependências para executar o projeto, depois de criar o ambiente e estiver com ele ativado execute a seguinte linha de comando no terminal para instalar as dependências do projeto:</p>
 
 ```
-    pip install -r requirements. txt
+    pip install -r requirements.txt
 ```
 
 <h1>Como configurar o L1LMR</h1>
@@ -60,7 +65,23 @@
 
 <h2>Turtlebot 2</h2>
 
-<h3>EM CONSTRUÇÃO</h3>
+<p> Para a 1 interação é necessário mapear o local, no qual o turtlebot irá operar usando os seguintes comandos: </p>
+```
+    roslaunch turtlebot_bringup minimal.launch 
+    roslaunch turtlebot_navigation gmapping_demo.launch
+    roslaunch turtlebot_rviz view_navigation.launch
+```
+<p> Ao finalizar é necessário salvar o arquivo do mapa utilizando o seguinte comando: </p>
+```
+    rosrun map_server map_server mymap.yaml
+```
+<p> Após essas etapas é so rodar o comandos para a operação do turtlebot </p>
+```
+    EXPORT TURTLEBOT_MAP_FILE="$(CAMINHO DO ARQUIVO)"
+    roslaunch turtlebot_bringup minimal.launch
+    roslaunch turtlebot_navigation amcl_demo.launch (espere a odometria)
+    roslaunch turtlebot_rviz view_navigation.launch
+```
 
 <h2>Controladora</h2>
 
