@@ -64,17 +64,17 @@ pip install -r requirements.txt
 
 <h2>Turtlebot 2</h2>
 
-<p> Para a 1 interação é necessário mapear o local, no qual o turtlebot irá operar usando os seguintes comandos: </p>
+<li> Para a 1 interação é necessário mapear o local, no qual o turtlebot irá operar usando os seguintes comandos: </li>
 ```
 roslaunch turtlebot_bringup minimal.launch 
 roslaunch turtlebot_navigation gmapping_demo.launch
 roslaunch turtlebot_rviz view_navigation.launch
 ```
-<p> Ao finalizar é necessário salvar o arquivo do mapa utilizando o seguinte comando: </p>
+<li> Ao finalizar é necessário salvar o arquivo do mapa utilizando o seguinte comando: </li>
 ```
 rosrun map_server map_server mymap.yaml
 ```
-<p> Após essas etapas é so rodar o comandos para a operação do turtlebot </p>
+<li> Após essas etapas é so rodar o comandos para a operação do turtlebot </li>
 ```
 EXPORT TURTLEBOT_MAP_FILE="$(CAMINHO DO ARQUIVO)"
 roslaunch turtlebot_bringup minimal.launch
