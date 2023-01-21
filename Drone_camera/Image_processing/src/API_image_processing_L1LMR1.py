@@ -10,16 +10,15 @@ def barCodeProcessor(path):
         image = cv2.imread(path)
         ok, decodedInfo, _, _ = barCodeDetector.detectAndDecode(image)
         
-        print(f"Qr Status: {ok}")
         if ok:
             print(f"Qr Status: {ok}, Decoded Information: {decodedInfo}")
 
 
-HOST = "192.168.1.46"  
+HOST = "192.168.0.106"  
 PORT = 4000
 
 imageNumber = 0
-path = "/home/Augusto_V/Documents/Mambo-Turtle-Warehouse/Drone_camera/Image_processing/Images_processeds/Bc_"
+path = "/home/Augusto_V/Documents/Mambo-Turtle-Warehouse/Drone_camera/Image_processing/Images_processeds_L1LMR1/Bc_"
 imageBytes = bytes()
 
 startReceiver = False

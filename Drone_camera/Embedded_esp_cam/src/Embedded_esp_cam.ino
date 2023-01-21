@@ -12,6 +12,7 @@
 #define XCLK_GPIO_NUM      0
 #define SIOD_GPIO_NUM     26
 #define SIOC_GPIO_NUM     27
+
 #define Y9_GPIO_NUM       35
 #define Y8_GPIO_NUM       34
 #define Y7_GPIO_NUM       39
@@ -31,7 +32,7 @@
 const char *ssid = "NTGR_B9CC";
 const char *password = "3bKo6A6X";
 WiFiClient client;
-const char *host = "192.168.1.46";
+const char *host = "192.168.0.106";
 const int port = 4000;
 
 
@@ -78,8 +79,8 @@ void setup() {
   config.pin_reset = RESET_GPIO_NUM;
   config.xclk_freq_hz = 20000000;
   config.pixel_format = PIXFORMAT_JPEG;
-  config.jpeg_quality = 17;
-  config.frame_size = FRAMESIZE_VGA;
+  config.frame_size = FRAMESIZE_SVGA;
+  config.jpeg_quality = 14;
   config.fb_count = 1;
 
   esp_err_t err = esp_camera_init(&config);
@@ -105,8 +106,7 @@ void loop() {
 void capImg() {
   Serial.println("Connected with succesfuly.");
 
-  camera_fb_t *fb = nullptr;
-  fb = esp_camera_fb_get();
+  camera_fb_t *fb = esp_camera_fb_get();
 
   if (!fb) {
     Serial.println("Image capture failed.");
