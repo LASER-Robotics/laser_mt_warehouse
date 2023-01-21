@@ -1,0 +1,11 @@
+<!--
+  Used for visualising the turtlebot while building a map or navigating with the ros navistack.
+ -->
+<launch>
+  
+  <node pkg="rostopic" type="rostopic" name="set_initial_pose" args="pub -l initialpose geometry_msgs/PoseWithCovarianceStamped -f $(find turtlebot_navigation)/launch/set_pose.yaml"/>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find turtlebot_navigation)/rviz/navigation.rviz"/>
+ 
+  <!-- <node pkg="rostopic" type="rostopic" name="set_initial_pose" args="pub initialpose geometry_msgs/PoseWithCovarianceStamped '{header:{stamp: now, frame_id: map}, pose:{pose:{position:{x: 4.7, y: 0}, orientation:{x: 0, y: 0, z: 0.999, w: -0.05}}}}'"/> -->
+
+</launch>

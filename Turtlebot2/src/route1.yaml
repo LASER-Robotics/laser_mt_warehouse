@@ -1,2 +1,2 @@
-- {filename: 'parede central', position: { x: 0.551, y: 0}, quaternion: {r1: 0, r2: 0, r3: 0.999, r4: -0.041}} # ponto parede
-- {filename: 'ponto central', position: { x: 4.7, y: 0}, quaternion: {r1: 0, r2: 0, r3: 0.999, r4: -0.049}} # ponto central
+- {filename: 'parede central', position: { x: 0.553, y: 0.0}, quaternion: {r1: 0, r2: 0, r3: 0.999, r4: -0.01}} # ponto parede
+- {filename: 'ponto central', position: { x: 4.7, y: 0}, quaternion: {r1: 0, r2: 0, r3: -0.999, r4: 0.499}} # ponto central
