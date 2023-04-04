@@ -13,11 +13,7 @@ class Drone:
         if self.connectionState:
             print("Drone: Going up")
             self.mambo.safe_takeoff(100)
-<<<<<<< HEAD
-            self.mambo.fly_direct(0, 0, 0, 16, 7)
-=======
             self.mambo.fly_direct(0, 0, 0, 16, 8)
->>>>>>> bc6f1c7ce658d8b54ec142e3b95aba6048232feb
             self.mambo.smart_sleep(1)
             self.mambo.fly_direct(0, 0, 0, -10, 12)
             self.mambo.safe_land(100)
@@ -27,5 +23,3 @@ class Drone:
     def disconnect(self):
         print("Drone: disconected")
         self.mambo.disconnect()
-
-            
